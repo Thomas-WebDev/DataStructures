@@ -1,0 +1,46 @@
+/**************************************************************
+ * Filename: fibRec.cc
+ * Author: Kevin Thomas Kehoe
+ * Date Modified: 10/24/2016
+ * Course: CSCI132
+ * Purpose: 
+ **************************************************************/
+
+#include <iostream>
+using namespace std;
+int fib (int);
+
+int main(void)
+/***********************************************************************
+*Pre: 
+*Post: 
+************************************************************************/
+{
+  int n;
+  cout << "Enter an integer: ";
+  cin >> n;
+  fibIter(int n).fibIter();
+  cout << endl << "The fibonacci number for month " << n << " is " << endl;
+}
+
+int fibTail(int n, int i, int fib_i_minus1, int fib_i)
+/***********************************************************************
+*Pre: 
+*Post: 
+************************************************************************/
+{
+  if (n == 1){
+    return fib_i;
+  } else {
+    return fibTail(n - 1, i + 1 ,fib_i, fib_i + fib_i_minus1);
+  }
+}
+
+int fibIter(int n)
+{
+  i = 1;
+  fib_i_minus1 = 0;
+  fib_i = 1;
+  fibTail(n, i, fib_i_minus1, fib_i);
+}
+

@@ -1,0 +1,38 @@
+/**************************************************************
+ * Filename: fibRec.cc
+ * Author: Kevin Thomas Kehoe
+ * Date Modified: 10/24/2016
+ * Course: CSCI132
+ * Purpose: 
+ **************************************************************/
+
+#include <iostream>
+using namespace std;
+int fib (int);
+
+int main(void)
+/***********************************************************************
+*Pre: 
+*Post: 
+************************************************************************/
+{
+  int n;
+  cout << "Enter an integer: ";
+  cin >> n;
+  fib (n);
+  cout << endl << "The fibonacci number for month " << n << " is " << fib(n) << endl;
+}
+
+int fib (int n)
+/***********************************************************************
+*Pre: 
+*Post: 
+************************************************************************/
+{
+  if (n < 2){
+    return n;
+  } else {
+    return fib(n - 1) + fib(n - 2);
+  }
+}
+

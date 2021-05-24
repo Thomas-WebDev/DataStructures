@@ -1,0 +1,43 @@
+
+#include <iostream>
+#include "queue.h"
+
+using namespace std;
+
+int main(void) {
+
+  char a;
+  char c;
+  Queue queue;
+  bool same = true;
+
+  cout << "Please enter two strings separated by a colon:" << endl;
+  cin.get(c);
+  //seperate the first string into characters abd stores the chars in a queue
+  while (c != ':' && c != '\n'){
+    if (queue.append(c) == overflow)
+      cout << "Overflow error in queue" << endl;
+    cin.get(c);
+  }
+  //checks if there are two strings
+  cin.get(c);
+  if (c == '\n'){
+    cout << "The input has no colon."  << endl;
+  } else {
+    while ((!queue.empty()) && (c != '\n')){
+      queue.retrieve(a);
+	if (a != c)
+	  same = false;
+      queue.serve();
+      cin.get(c);
+    }
+    if (same)
+      cout << "The two strings are the same."  << endl;
+    else if((queue.empty()) && c == '\n')
+      cout << "The two strings are the same length, but they are different."  << endl;
+    else if((!queue.empty()) && c == '\n')
+      cout << "The lefthand string is longer than the righthand string." << endl;
+    else if((queue.empty()) && c != '\n')
+      cout << "The righthand string is longer than the lefthand string."  << endl;    
+  }
+}
